@@ -11,20 +11,21 @@ function Register({ setLoggedIn, setUsername }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch('https://react-free.vercel.app/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: localUsername, password }),
       });
       const data = await response.json();
       if (response.ok) {
-        setError(''); // Clear any previous errors
-        navigate('/login'); // Redirect to login page after successful registration
+        setError('');
+        navigate('/login');
       } else {
         setError(data.message);
       }
     } catch (err) {
-      setError('Something went wrong');
+      console.error('Fetch error:', err);
+      setError('Failed to connect to server. Please try again.');
     }
   };
 

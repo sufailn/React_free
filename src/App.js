@@ -9,14 +9,14 @@ function MainApp({ username }) {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api')
+    fetch('https://react-free.vercel.app/api')
       .then((response) => response.json())
       .then((data) => setMessage(data.message));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/api/data', {
+    fetch('https://react-free.vercel.app/data', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ input }),

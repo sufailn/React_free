@@ -11,7 +11,7 @@ function Login({ setLoggedIn, setUsername }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch('https://react-free.vercel.app/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: localUsername, password }),
@@ -20,12 +20,13 @@ function Login({ setLoggedIn, setUsername }) {
       if (response.ok) {
         setLoggedIn(true);
         setUsername(data.username);
-        navigate('/'); // Redirect to home on successful login
+        navigate('/');
       } else {
         setError(data.message);
       }
     } catch (err) {
-      setError('Something went wrong');
+      console.error('Fetch error:', err);
+      setError('Failed to connect to server. Please try again.');
     }
   };
 
