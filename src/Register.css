@@ -1,0 +1,29 @@
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .register-container h2 {
+    text-align: center;
+  }
+  
+  .register-container input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+  }
+  
+  .register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+  }
